@@ -1,6 +1,6 @@
 {
 	"name": "xea-cli-view-service",
-	"version": "1.0.2",
+	"version": "1.0.0",
 	"main": "index.js",
 	"bin": {
 		"xea-cli-view-service": "./bin/index"

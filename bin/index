@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+/**
+ * Copyright (c) Yejiang1015, Inc. and its affiliates. All Rights Reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+const fs = require("fs");
+const path = require("path");
+const command = process.argv.slice(2).join("_");
+let filePath = path.resolve(__dirname, `../scripts/${command}.js`);
+
+if (!fs.existsSync(filePath)) {
+	filePath = path.resolve(__dirname, `../scripts/help.js`);
+}
+
+const commandFile = require(filePath);
+
+commandFile().catch(err => {
+	console.error(err);
+	process.exit(1);
+});
